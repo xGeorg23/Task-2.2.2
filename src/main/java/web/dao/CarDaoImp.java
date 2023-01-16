@@ -9,7 +9,8 @@ import java.util.List;
 @Repository
 public class CarDaoImp implements CarDao {
     private final static List<Car> allCars = new ArrayList<>();
-    public static List<Car> getAllCars() {
+
+    static {
         allCars.add(new Car(1, "Car 1", 111));
         allCars.add(new Car(2, "Car 2", 222));
         allCars.add(new Car(3, "Car 3", 333));
@@ -17,6 +18,10 @@ public class CarDaoImp implements CarDao {
         allCars.add(new Car(5, "Car 5", 555));
         allCars.add(new Car(6, "Car 6", 666));
         allCars.add(new Car(7, "Car 7", 777));
+    }
+
+    @Override
+    public List<Car> getAllCars() {
         List<Car> cars = allCars;
         return cars;
     }
